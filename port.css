@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+    color: aqua;
+    font-family: 'Zen Maru Gothic', serif;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.About{
+    text-align: left;
+}
