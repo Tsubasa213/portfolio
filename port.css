@@ -10,3 +10,8 @@ body{
 .About{
     text-align: left;
 }
+
+.icon {
+    width: 350px;
+    height: 300px;
+}
