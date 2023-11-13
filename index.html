@@ -7,32 +7,82 @@
     <link rel="stylesheet" href="port.css">
     <script src="port.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-1-6/css/9-1-6.css">
+</head>
 </head>
 <body>
-    <h1>Portfolio</h1>
+    <h1 class="hedder">Portfolio</h1>
     <img class="icon" src="icon.PNG" alt="icon">
-    <h2>About</h2>
-    <div class="About">
-        <ul>
-            <li>名前</li>
-            <li>生年月日</li>
-            <li>出身</li>
-            <li>趣味</li>
-        </ul>
-    </div>
+    <h2 class="heading">About</h2>
     <div>
-        <h2>Career</h2>
-        <p>大阪公立大学工業高等専門学校</p>
-        <p>2023年現在 : 2年知能情報コース</p>
+        <table class="About">
+            <tr >
+                <th>Name</th>
+                <td>　つばさ</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>　2006年5月13日</td>
+            </tr>
+            <tr>
+                <th>From</th>
+                <td>　大阪府</td>
+            </tr>
+            <tr>
+                <th>Hobby</th>
+                <td>　FPS/音楽鑑賞/ラーメン巡り</td>
+            </tr>
+        </table>
     </div>
+
     <div>
-        <h2>Skill</h2>
+        <section>
+            <h2 class="heading">Career</h2>
+        
+              <ul class="timeline">
+              <li>
+                <dl>
+                <dt>2022</dt>
+                <dd><strong>大阪公立大学工業高等専門学校に入学</strong>知能情報コースを目指す。</dd>
+                </dl>
+                        <span class="border-line"></span> 
+              </li>
+                <li>
+                <dl>
+                <dt>2023</dt>
+                <dd><strong>知能情報コースに進学</strong>プログラミングについて教養を深める。</dd>
+                </dl>
+                        <span class="border-line"></span> 
+              </li>
+          </ul>
+              
+          <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+          <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-1-6/js/9-1-6.js"></script>  
+              
+              
+        </section>
+    </div>
+
+    <div>
+        <h2 class="heading">Skill</h2>
         <p>言語</p>
+        <table class="Skill">
+            <tr >
+                <th><img src="python.icon.png" alt="python" width="70px" height="70px"></th>
+                <td>　pythonを勉強しました</td>
+            </tr>
+        </table>
     </div>
     <div>
-        <h2>高専祭</h2>
+        <h2 class="heading">Product</h2>
+        <p>高専祭</p>
+        <p></p>
+        <a class="kadai" href="https://github.com/Tsubasa213/kadai5.git">課題５</a>
     </div>
 
 </body>
