@@ -4,12 +4,17 @@ body{
     font-family: 'Zen Maru Gothic', serif;
     text-align: center;
     /* max-width: 300px; */
-    /* margin: 0 auto; */ 
+    /* margin: 0 auto; */
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 4%;
+    margin-bottom: 5%;
 }
 
 .midasi{
     color: aqua;
-    font-size: 45px;
+    font-size: 50px;
+    font-family: 'Dancing Script', cursive;
 }
 
 .heading {
@@ -18,7 +23,7 @@ body{
 
 .About{
     text-align: left;
-    margin-left: 40%;
+    margin-left: 27%;
     padding-inline: 15px;
     font-size: 25px;
 }
@@ -28,14 +33,19 @@ body{
     height: 343px;
 }
 .kadai{
+    font-size: 25px;
     color: white;
 }
 
 .Skill {
     text-align: left;
-    margin-left: 40%;
+    margin-left: 10%;
+    font-size: 25px;
 }
 
+.size2 {
+    font-size: 25px;
+}
 /*========= バー表示のためのCSS ===============*/
 
 /*タイムライン全体の設定*/
@@ -44,6 +54,7 @@ body{
   width:100%;
   margin:50px auto;
   padding:0 30px;
+  font-size: 25px;
 }
 
 .timeline li{
@@ -55,6 +66,10 @@ body{
 
 .timeline dl{
   margin:0 0 20px 3em;
+}
+
+.timeline dt{
+    font-size: 30px;
 }
 
 .timeline dd strong{
@@ -132,4 +147,8 @@ section:first-child{
 
 section:nth-child(2n){
   background:#f3f3f3; 
+}
+
+.size1{
+    font-size: 30px;
 }
