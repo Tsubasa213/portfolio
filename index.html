@@ -92,18 +92,71 @@
     <div>
         <h2 class="heading">Product</h2>
         <ul>
-            <li class="size1">高専祭</li>
+            <li class="size1">高専祭(2023年10月)</li>
         </ul>
         <br>
         <a class="kadai" href="https://s-ao213.github.io/osero/osero.html">★オセロゲーム</a>
-        <p class="size2">高専祭で展示されませんでしたが、主に発案、デバッグを勤めました。</p>
+        <p class="size2">高専祭で展示されませんでしたが、主に発案、デバッグを勤めました。一つの画面で交代で対戦することができます。</p>
 
         <ul>
-            <li class="size1">プログラミング自由課題</li>
+            <li class="size1">プログラミング自由課題(2023年8~9月)</li>
         </ul>
         <br>
         <a class="kadai" href="https://github.com/Tsubasa213/kadai5.git" >★自由課題</a>
         <p class="size2">ガチャシュミレーションシステムを作り、目安を設定して使いやすいものを作りました。</p>
+
+        <ul>
+            <li class="size1">ゲーム制作(2024年1月)</li>
+        </ul>
+        <br>
+        <a class="kadai" href="https://github.com/Tsubasa213/game1-typing.git">★タイピングゲーム</a>
+        <p class="size2">自主制作物として、タイピングゲームを製作しました。<br>
+            自分自身まだタイピングが拙いところがあるのでこのゲームを製作しようと考えました。 <br>
+            対応している文字がまだ少ないのと、単語数が少ないので順次対応予定です。<br>
+            「ん」はn単押しです。
+        </p>
+        <!-- <img class="choco" src="serect_typing.png" alt="選択画面">
+        <img class="choco" src="gamenow_typing.png" alt="ゲーム画面">
+        <img class="choco" src="score_typing.png" alt="スコア画面"> -->
+        <div class="carousel">
+            <!-- スライドのリスト -->
+            <div class="contains">
+                <input class="slide_select" type="radio" id="SlideA" name="slide_check" checked />
+                <input class="slide_select" type="radio" id="SlideB" name="slide_check" />
+                <input class="slide_select" type="radio" id="SlideC" name="slide_check" />
+                <div class="slide">
+                    <div class="scroll_controler">
+                        <label class="scroll_button scroll_prev" for="SlideD"></label>
+                        <label class="scroll_button scroll_next" for="SlideB"></label>
+                    </div>
+                    <img src="serect_typing.png" alt="選択画面">
+                </div>
+                <!-- スライド（2番目）内容は1個めと同じ -->
+                <div class="slide">
+                    <div class="controler_scroll">
+                        <label class="scroll_button scroll_prev" for="SlideA"></label>
+                        <label class="scroll_button scroll_next" for="SlideC"></label>
+                    </div>
+                    <img src="gamenow_typing.png" alt="ゲーム画面">
+                </div>
+                <!-- スライド（3番目）内容は1個めと同じ -->
+                <div class="slide">
+                    <div class="controler_scroll">
+                        <label class="scroll_button scroll_prev" for="SlideB"></label>
+                        <label class="scroll_button scroll_next" for="SlideD"></label>
+                    </div>
+                    <img src="score_typing.png" alt="スコア画面">
+                </div>
+                <!-- スライド移動用ボタン -->
+                <div class="move_controler">
+                <!-- 1個目のスライドのボタン -->
+                <!-- 一番上のラジオボタンの1個目のスライドのid”A”をforに定義します-->
+                <label class="button_move" for="SlideA"></label>
+                <label class="button_move" for="SlideB"></label>
+                <label class="button_move" for="SlideC"></label>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
 </body>
