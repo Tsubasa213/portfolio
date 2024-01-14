@@ -10,27 +10,31 @@ body{
     margin-top: 4%;
 }
 
-/* カルーセル全体 */
+
+.photo {
+    width: 500px;
+    height: 400px;
+    border:1px solid white;
+}
+
+
 .carousel {
-  /* 水平方向中央寄せ */
   display: flex;
   justify-content: center;
 }
-/* カルーセル内容 */
+
 .contains {
-  /* サイズは自由に変更してください。*/
-  /* 下の.slideも同じサイズにしてください。 */
   width: 500px;
   height: 400px;
   overflow: hidden;
   position: relative;
   list-style: none;
 }
-/* スライド切り換え用ラジオボタンは常に非表示 */
+
 .slide_select {
   display: none;
 }
-/* 各スライド */
+
 .slide {
   /* サイズは自由に変更してください。*/
   /* 上の.containsも同じサイズにしてください。 */
@@ -126,14 +130,7 @@ body{
   .button_move:nth-of-type(3) {
   opacity: 1;
 }
-.slide_select:nth-of-type(4):checked ~ .slide:nth-of-type(4) {
-  opacity: 1;
-}
-.slide_select:nth-of-type(4):checked
-  ~ .move_controler
-  .button_move:nth-of-type(4) {
-  opacity: 1;
-}
+
 
 
 .midasi{
