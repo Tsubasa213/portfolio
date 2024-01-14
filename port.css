@@ -150,6 +150,7 @@ body{
     font-size: 25px;
 }
 
+
 .icon{
     width: 400px;
     height: 343px;
@@ -166,7 +167,12 @@ body{
 }
 
 .size2 {
-    font-size: 25px;
+  max-width: 700px;
+  width:250%;
+  margin:auto;
+  /* padding:0px; */
+  font-size: 25px;
+  text-align: left;
 }
 
 /*========= バー表示のためのCSS ===============*/
