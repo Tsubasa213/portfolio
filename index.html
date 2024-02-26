@@ -154,6 +154,7 @@
                 <td>「つ」は「tu」とする</td>
             </tr>
         </table>
+        <br>
 
         <div class="carousel">
             <!-- スライドのリスト -->
@@ -202,10 +203,51 @@
         <br>
         <a class="kadai" href="https://github.com/Tsubasa213/pyside_memo.git" >★メモ帳</a>
         <p class="size2">PySideを使用し、簡単なメモをテキストファイルとして指定したファイルに保存、
-            テキストファイルをアプリ内で開く、さらにテンプレートの呼び出しなどの機能が備わったメモ帳です。
-            
-
+            テキストファイルをアプリ内で開く、さらにテンプレートの呼び出しなどの機能が備わったメモ帳です。<br>
+            ファイルは半角英数字のみを受け付けます。また、初めてアプリを開きテキストファイルを保存する場合、親フォルダを設定することができます。
+            そして、2度目以降にアプリを開き保存すると、1度目に選択した親フォルダに保存されます。
+            ファイル名が重複する場合、上書きをするかの確認が入ります。
         </p>
+        <br>
+        <div class="carousel">
+            <!-- スライドのリスト -->
+            <div class="contains">
+                <input class="slide_select" type="radio" id="SlideD" name="slide1_check" checked />
+                <input class="slide_select" type="radio" id="SlideE" name="slide1_check" />
+                <input class="slide_select" type="radio" id="SlideF" name="slide1_check" />
+                <div class="slide">
+                    <div class="scroll_controler">
+                        <label class="scroll_button scroll_prev" for="SlideF"></label>
+                        <label class="scroll_button scroll_next" for="SlideE"></label>
+                    </div>
+                    <img class="photo" src="memo top.png" alt="トップ画面" >
+                </div>
+                <!-- スライド（2番目）内容は1個めと同じ -->
+                <div class="slide">
+                    <div class="controler_scroll">
+                        <label class="scroll_button scroll_prev" for="SlideD"></label>
+                        <label class="scroll_button scroll_next" for="SlideF"></label>
+                    </div>
+                    <img class="photo" src="oyafail.JPG" alt="親フォルダの設定">
+                </div>
+                <!-- スライド（3番目）内容は1個めと同じ -->
+                <div class="slide">
+                    <div class="controler_scroll">
+                        <label class="scroll_button scroll_prev" for="SlideE"></label>
+                        <label class="scroll_button scroll_next" for="SlideD"></label>
+                    </div>
+                    <img class="photo" src="tyohukucheck.png" alt="重複確認">
+                </div>
+                <!-- スライド移動用ボタン -->
+                <div class="move_controler">
+                <!-- 1個目のスライドのボタン -->
+                <!-- 一番上のラジオボタンの1個目のスライドのid”A”をforに定義します-->
+                <label class="button_move" for="SlideD"></label>
+                <label class="button_move" for="SlideE"></label>
+                <label class="button_move" for="SlideF"></label>
+                </div>
+            </div>
+        </div>
 
     </div>
     <br>

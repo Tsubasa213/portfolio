@@ -8,6 +8,7 @@ body{
     /* margin-left: 5%;
     margin-right: 5%; */
     margin-top: 4%;
+    
 }
 
 
@@ -56,7 +57,7 @@ body{
 /* 上辺と右辺のみ幅5pxの枠線 */
   border-width: 5px 5px 0 0;
   border-style: solid;
-  border-color: #fdfdfd;
+  border-color: #e493fc;
   cursor: pointer;
   /* 普段はボタンはやや薄くする */
   opacity: 0.5;
@@ -105,32 +106,50 @@ body{
 }
 /* スライド移動ボタンの色 */
 .button_move {
-  background-color: #fdfdfd;
+  background-color: #e493fc;
 }
 /* 1番目のスライド選択時 */
 /* 1番目のスライドの透明度を0にして表示する */
-.slide_select:nth-of-type(1):checked ~ .slide:nth-of-type(1) {
+.slide_select[name="slide_check"]:nth-of-type(1):checked ~ .slide:nth-of-type(1) {
   opacity: 1;
 }
 /* スライド移動ボタンの1個目を明るくする */
 /* （今選択されていることが分かるように） */
-.slide_select:nth-of-type(1):checked ~ .move_controler .button_move:nth-of-type(1) {
+.slide_select[name="slide_check"]:nth-of-type(1):checked ~ .move_controler .button_move:nth-of-type(1) {
   opacity: 1;
 }
-.slide_select:nth-of-type(2):checked ~ .slide:nth-of-type(2) {
+.slide_select[name="slide_check"]:nth-of-type(2):checked ~ .slide:nth-of-type(2) {
   opacity: 1;
 }
-.slide_select:nth-of-type(2):checked ~ .move_controler .button_move:nth-of-type(2) {
+.slide_select[name="slide_check"]:nth-of-type(2):checked ~ .move_controler .button_move:nth-of-type(2) {
   opacity: 1;
 }
-.slide_select:nth-of-type(3):checked ~ .slide:nth-of-type(3) {
+.slide_select[name="slide_check"]:nth-of-type(3):checked ~ .slide:nth-of-type(3) {
   opacity: 1;
 }
-.slide_select:nth-of-type(3):checked ~ .move_controler
+.slide_select[name="slide_check"]:nth-of-type(3):checked ~ .move_controler
   .button_move:nth-of-type(3) {
   opacity: 1;
 }
 
+.slide_select[name="slide1_check"]:nth-of-type(1):checked ~ .slide:nth-of-type(1) {
+  opacity: 1;
+}
+.slide_select[name="slide1_check"]:nth-of-type(1):checked ~ .move_controler .button_move:nth-of-type(1) {
+  opacity: 1;
+}
+.slide_select[name="slide1_check"]:nth-of-type(2):checked ~ .slide:nth-of-type(2) {
+  opacity: 1;
+}
+.slide_select[name="slide1_check"]:nth-of-type(2):checked ~ .move_controler .button_move:nth-of-type(2) {
+  opacity: 1;
+}
+.slide_select[name="slide1_check"]:nth-of-type(3):checked ~ .slide:nth-of-type(3) {
+  opacity: 1;
+}
+.slide_select[name="slide1_check"]:nth-of-type(3):checked ~ .move_controler .button_move:nth-of-type(3) {
+  opacity: 1;
+}
 
 
 .midasi{
