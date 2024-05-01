@@ -1,49 +1,42 @@
 body{
-    background-color: black;
-    color: aqua;
-    font-family: 'Zen Maru Gothic', serif;
-    text-align: center;
-    /* max-width: 300px; */
-    /* margin: 0 auto; */
-    /* margin-left: 5%;
-    margin-right: 5%; */
-    margin-top: 4%;
-    
+  background-color: black;
+  color: aqua;
+  font-family: 'Zen Maru Gothic', serif;
+  text-align: center;
+  padding-top: 4%;
 }
-
 
 .photo {
-    width: 500px;
-    height: 400px;
-    border:1px solid white;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border:1px solid white;
 }
 
-
 .carousel {
-  display: flex;
-  justify-content: center;
+display: flex;
+justify-content: center;
 }
 
 .contains {
-  width: 500px;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  list-style: none;
+width: 100%;
+max-width: 500px;
+height: auto;
+overflow: hidden;
+position: relative;
+list-style: none;
 }
 
 .slide_select {
-  display: none;
+display: none;
 }
 
 .slide {
-  /* サイズは自由に変更してください。*/
-  /* 上の.containsも同じサイズにしてください。 */
-  width: 500px;
-  height: 400px;
-  position: absolute;
-  /* スライドの初期値は選択されていないので透明にしておく */
-  opacity: 0;
+width: 100%;
+max-width: 500px;
+height: auto;
+position: absolute;
+opacity: 0;
 }
 /* 前へ次へボタン */
 .scroll_button {
@@ -164,7 +157,6 @@ body{
 
 .About{
     text-align: left;
-    margin-left: 37%;
     padding-inline: 15px;
     font-size: 25px;
 }
@@ -183,6 +175,7 @@ body{
     text-align: left;
     margin-left: 20%;
     font-size: 25px;
+  
 }
 
 .size2 {
@@ -395,4 +388,52 @@ footer {
     color: white;
     font-size: 14px;
     padding-block: 20px;
+}
+
+/* レスポンシブ */
+
+/* スマートフォン用縦(0-480px) */
+@media only screen and (max-width: 480px) {
+  .About{
+    margin-left: 5%;
+  }
+}
+
+/* スマートフォン用横(481px-670px) */
+@media only screen and (min-width: 481px) and (max-width: 670px) {
+
+}
+
+/* タブレット(671-960px) */
+@media only screen and (min-width: 671px) and (max-width: 960px) {
+  .photo, .contains, .slide  {
+    width: 100%;
+    height: auto;
+  }
+  .size1{
+    margin-right: 27%;
+  }
+  .Skill{
+    margin-right: 20%;
+  }
+  .About{
+    margin-left: 25%;
+  }
+}
+
+/* ノートPC(961-1280px) */
+@media only screen and (min-width: 961px) and (max-width: 1280px) {
+  .photo, .contains, .slide {
+    width: 500px;
+    height: 400px;
+  }
+  .About{
+    margin-left: 37%;
+  }
+}
+/* モニター(1281px以上) */
+@media only screen and (min-width: 1281px) {
+  .About{
+    margin-left: 37%;
+  }
 }
