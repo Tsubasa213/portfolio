@@ -394,6 +394,11 @@ footer {
 
 /* スマートフォン用縦(0-480px) */
 @media only screen and (max-width: 480px) {
+  .photo, .contains, .slide  {
+    width: 400px;
+    height: 280px;
+}
+
   .About{
     margin-left: 5%;
   }
@@ -401,14 +406,18 @@ footer {
 
 /* スマートフォン用横(481px-670px) */
 @media only screen and (min-width: 481px) and (max-width: 670px) {
+  .photo, .contains, .slide  {
+      width: 500px;
+      height: 400px;
+  }
 
 }
 
 /* タブレット(671-960px) */
 @media only screen and (min-width: 671px) and (max-width: 960px) {
   .photo, .contains, .slide  {
-    width: 100%;
-    height: auto;
+    width: 500px;
+    height: 400px;
   }
   .size1{
     margin-right: 27%;
@@ -433,6 +442,11 @@ footer {
 }
 /* モニター(1281px以上) */
 @media only screen and (min-width: 1281px) {
+  .photo, .contains, .slide {
+    width: 500px;
+    height: 400px;
+  }
+  
   .About{
     margin-left: 37%;
   }
