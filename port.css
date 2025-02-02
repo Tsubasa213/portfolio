@@ -1,6 +1,6 @@
 body{
-  background-color: black;
-  color: aqua;
+  background-color: #212121;
+  color: white;
   font-family: 'Zen Maru Gothic', serif;
   text-align: center;
   padding-top: 4%;
@@ -168,7 +168,7 @@ opacity: 0;
 }
 .kadai{
     font-size: 25px;
-    color: white;
+    color: aqua;
 }
 
 .Skill {
