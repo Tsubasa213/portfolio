@@ -151,8 +151,16 @@ opacity: 0;
     font-family: 'Dancing Script', cursive;
 }
 
+@font-face {
+  font-family: 'Neon Glow';
+  src: url(https://assets.codepen.io/230569/NeonGlow-8VLz.ttf);
+}
 .heading {
-    font-size: 45px;
+    font-size: 60px;
+    font-family: 'Neon Glow', sans-serif;
+    font-style: italic;
+    text-shadow: 0 0 1.75rem #B7E7F7;
+    color: #B7E7F7;
 }
 
 .About{
@@ -251,7 +259,6 @@ header{
 h1{
   font-size:1.5rem;
   text-align: center;
-  text-transform: uppercase;
   padding: 20px;
   color: #fff;
 }
@@ -296,7 +303,7 @@ section:nth-child(2n){
     margin-left: 27%;
     font-size: 30px;
     color: #fff;
-    text-shadow:
+     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
         0 0 21px #fff,
@@ -304,10 +311,10 @@ section:nth-child(2n){
         0 0 82px blue,
         0 0 92px blue,
         0 0 102px blue,
-        0 0 151px blue;
+        0 0 151px blue; 
     }
 
-    @keyframes pulsate {
+     @keyframes pulsate {
         
     100% {
 
@@ -322,7 +329,7 @@ section:nth-child(2n){
         0 0 150px blue;
     
     }
-    
+     
     0% {
 
     text-shadow:
@@ -339,7 +346,7 @@ section:nth-child(2n){
 }
 
 /* ----ネオン色---- */
-.heading{
+/* .heading{
     color: #fff;
     text-shadow:
         0 0 7px #fff,
@@ -350,8 +357,8 @@ section:nth-child(2n){
         0 0 92px #f09,
         0 0 102px #f09,
         0 0 151px #f09;
-    }
-
+    } */
+/* 
     @keyframes pulsate {
         
     100% {
@@ -378,10 +385,9 @@ section:nth-child(2n){
     0 0 73px #f09,
     0 0 80px #f09,
     0 0 94px #f09,
-    0 0 140px #f09;
+    0 0 140px #f09; */
 
-}
-}
+
 footer {
     background-color: darkgray;
     text-align: center;
