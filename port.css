@@ -147,7 +147,7 @@ opacity: 0;
 
 .midasi{
     color: aqua;
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Dancing Script', cursive;
 }
 
@@ -156,7 +156,7 @@ opacity: 0;
   src: url(https://assets.codepen.io/230569/NeonGlow-8VLz.ttf);
 }
 .heading {
-    font-size: 60px;
+    font-size: 45px;
     font-family: 'Neon Glow', sans-serif;
     font-style: italic;
     text-shadow: 0 0 1.75rem #B7E7F7;
@@ -166,7 +166,7 @@ opacity: 0;
 .About{
     text-align: left;
     padding-inline: 15px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 
@@ -175,14 +175,14 @@ opacity: 0;
     height: 343px;
 }
 .kadai{
-    font-size: 25px;
+    font-size: 20px;
     color: aqua;
 }
 
 .Skill {
     text-align: left;
     margin-left: 20%;
-    font-size: 25px;
+    font-size: 20px;
   
 }
 
@@ -191,7 +191,7 @@ opacity: 0;
   width:250%;
   margin:auto;
   /* padding:0px; */
-  font-size: 25px;
+  font-size: 20px;
   text-align: justify;
 }
 
@@ -203,7 +203,7 @@ opacity: 0;
   width:100%;
   margin:50px auto;
   padding:0 30px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .timeline li{
@@ -218,7 +218,7 @@ opacity: 0;
 }
 
 .timeline dt{
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .timeline dd strong{
@@ -301,7 +301,7 @@ section:nth-child(2n){
     text-align: left;
     list-style: none;
     margin-left: 27%;
-    font-size: 30px;
+    font-size: 26px;
     color: #fff;
      text-shadow:
         0 0 7px #fff,
@@ -392,7 +392,7 @@ footer {
     background-color: darkgray;
     text-align: center;
     color: white;
-    font-size: 14px;
+    font-size: 10px;
     padding-block: 20px;
 }
 
