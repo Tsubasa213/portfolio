@@ -1,0 +1,332 @@
+body{
+  background-color: #212121;
+  color: white;
+  font-family: 'Zen Maru Gothic', serif;
+  text-align: center;
+  padding-top: 80px; /* ナビゲーションバーの高さを考慮 */
+  margin: 0;
+}
+
+/* ヘッダー用のスタイル */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #484848;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.site-title {
+  color: #B7E7F7;
+  margin: 0;
+  font-family: 'Neon Glow', sans-serif;
+  font-size: 24px;
+  text-shadow: 0 0 1rem #B7E7F7;
+}
+
+/* ナビゲーションのスタイル */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover, 
+.nav-menu a.active {
+  color: #B7E7F7;
+}
+
+/* ハンバーガーメニューのスタイル */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+  position: relative;
+  z-index: 1001; /* 追加: ボタンが最前面に表示されるようにする */
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s;
+}
+
+/* モバイル用のスタイル */
+@media only screen and (max-width: 768px) {
+  .nav-menu {
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      background-color: #484848;
+      width: 250px;
+      height: calc(100vh - 60px); /* 修正: ヘッダーの高さを引いた分 */
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+      transition: right 0.3s ease; /* 修正: イージング関数を追加 */
+      z-index: 1000; /* 追加: 重なり順を指定 */
+  }
+  
+  .nav-menu.active {
+      right: 0;
+  }
+  
+  .nav-menu li {
+      margin: 15px 0;
+  }
+  
+  .hamburger {
+      display: block;
+  }
+  
+  /* ハンバーガーメニューがアクティブのとき */
+  .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+      opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+  }
+}
+/* メインコンテンツ */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ヒーローセクション */
+.hero {
+  padding: 60px 0;
+}
+
+.intro {
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+.intro-text {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* 元のスタイルを継承 */
+.photo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border: 1px solid white;
+}
+
+@font-face {
+  font-family: 'Neon Glow';
+  src: url(https://assets.codepen.io/230569/NeonGlow-8VLz.ttf);
+}
+
+.heading {
+  font-size: 45px;
+  font-family: 'Neon Glow', sans-serif;
+  font-style: italic;
+  text-shadow: 0 0 1.75rem #B7E7F7;
+  color: #B7E7F7;
+  margin-bottom: 30px;
+}
+
+.About {
+  text-align: left;
+  padding-inline: 15px;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.kadai {
+  font-size: 20px;
+  color: aqua;
+}
+
+.Skill {
+  text-align: left;
+  margin: 0 auto;
+  font-size: 20px;
+  max-width: 700px;
+}
+
+.size2 {
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  font-size: 20px;
+  text-align: justify;
+}
+
+/* タイムライン */
+.timeline {
+  max-width: 400px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 0 30px;
+  font-size: 20px;
+}
+
+.timeline li {
+  position: relative;
+  list-style: none;
+  padding: 0 0 20px 0;
+}
+
+.timeline dl {
+  margin: 0 0 20px 3em;
+}
+
+.timeline dt {
+  font-size: 25px;
+}
+
+.timeline dd strong {
+  display: block;
+  padding: 10px 0;
+}
+
+.border-line {
+  position: absolute;
+  left: 0.4em;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: #ccc;
+}
+
+.timeline li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: aqua;
+  border-radius: 50%;
+}
+
+/* プロジェクト */
+.project {
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #484848;
+}
+
+.project-title {
+  font-size: 26px;
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px blue,
+    0 0 82px blue,
+    0 0 92px blue,
+    0 0 102px blue,
+    0 0 151px blue;
+  margin-bottom: 15px;
+}
+
+/* カルーセル (既存のスタイルを維持) */
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.contains {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  list-style: none;
+}
+
+/* ... 残りのカルーセル関連のCSSをここに ... */
+
+/* フッター */
+footer {
+  background-color: #484848;
+  text-align: center;
+  color: white;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+/* レスポンシブ */
+@media only screen and (max-width: 480px) {
+  .photo, .contains, .slide {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .About {
+    margin-left: 0;
+  }
+  
+  .heading {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 670px) {
+  .photo, .contains, .slide {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 671px) {
+  .about-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .About {
+    margin: 0;
+  }
+}

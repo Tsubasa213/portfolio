@@ -4,290 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tsubasa's Portfolio</title>
-    <link rel="stylesheet" href="port.css">
-    <script src="port.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Vibur:400' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-    <!-- レイアウトを制御する独自のCSSを読み込み -->
-    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
-    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-1-6/css/9-1-6.css">
 </head>
 <body>
-    <h1 class="heading">Portfolio</h1>
-    <img class="icon" src="images/icon.PNG" alt="icon">
-    <h2 class="heading">About</h2>
-    <div>
-        <table class="About">
-            <tr>
-                <th>Name</th>
-                <td>&emsp;つばさ</td>
-            </tr>
-            <tr>
-                <th>Birthday</th>
-                <td>&emsp;2006年5月13日</td>
-            </tr>
-            <tr>
-                <th>From</th>
-                <td>&emsp;大阪府</td>
-            </tr>
-            <tr>
-                <th>Hobby</th>
-                <td>&emsp;FPS/音楽鑑賞/ラーメン巡り</td>
-            </tr>
-        </table>
-    </div>
-
-    <div>
-        <section>
-            <h2 class="heading">Career</h2>
-            <ul class="timeline">
-                <li>
-                    <dl>
-                        <dt>2022</dt>
-                        <dd><strong>大阪公立大学工業高等専門学校に入学</strong>知能情報コースを目指す。</dd>
-                    </dl>
-                    <span class="border-line"></span> 
-                </li>
-                <li>
-                    <dl>
-                        <dt>2023</dt>
-                        <dd><strong>知能情報コースに進学</strong>プログラミングについて教養を深める。</dd>
-                    </dl>
-                    <span class="border-line"></span> 
-                </li>
+    <!-- ヘッダーとナビゲーション -->
+    <header>
+        <h1 class="site-title">Tsubasa's Portfolio</h1>
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <li><a href="/index.html" class="active">Home</a></li>
+                <li><a href="/about/index.html">About</a></li>
+                <li><a href="/career/index.html">Career</a></li>
+                <li><a href="/skills/index.html">Skills</a></li>
+                <li><a href="/projects/index.html">Projects</a></li>
             </ul>
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-            <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-1-6/js/9-1-6.js"></script>  
+            <button class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="heading">Portfolio</h1>
+            <img class="icon" src="/assets/images/icon.PNG" alt="icon">
+            <p class="intro">つばさのポートフォリオサイトへようこそ！</p>
+            <p class="intro-text">
+                このサイトでは、私のスキルやプロジェクト、経歴などを紹介しています。
+                <br>各セクションの詳細は、上部のナビゲーションからアクセスできます。
+            </p>
         </section>
-    </div>
-
-    <div>
-        <h2 class="heading">Skill</h2>
-        <table class="Skill">
-            <tr>
-                <th><img src="images/python.icon.png" alt="python" width="110px" height="110px"></th>
-                <td><span style="white-space: pre-wrap;">&emsp;</span>知能情報コース2年のプログラミング1にて、Pythonを勉強しました。</td>
-            </tr>
-            <tr class="space">
-                <th><img src="images/C.C+.icon.png" alt="C" width="110px" height="110px"></th>
-                <td><span style="white-space: pre-wrap;">&emsp;</span>C言語をArduinoにて、勉強しました。</td>
-            </tr>
-            <tr>
-                <th><img src="images/Scratch.icon.png" alt="Scratch" width="110px" height="110px"></th>
-                <td><span style="white-space: pre-wrap;">&emsp;</span>簡単なプログラミングの仕組みを理解することができました。</td>
-            </tr>
-        </table>
-    </div>
-
-    <div>
-        <h2 class="heading">Product</h2>
-        <ul>
-            <li class="size1">高専祭(2023年10月)</li>
-        </ul>
-        <br>
-        <a class="kadai" href="https://s-ao213.github.io/osero/osero.html">★オセロゲーム</a>
-        <p class="size2">高専祭で展示されませんでしたが、主に発案、デバッグを勤めました。
-            一つの画面で交代で対戦することができます。
-        </p>
-        <ul>
-            <li class="size1">プログラミング自由課題(2023年8~9月)</li>
-        </ul>
-        <br>
-        <a class="kadai" href="https://github.com/Tsubasa213/kadai5.git">★自由課題</a>
-        <p class="size2">ガチャシュミレーションシステムを作り、目安を設定して使いやすいものを作りました。</p>
-        <ul>
-            <li class="size1">ゲーム制作(2024年1月)</li>
-        </ul>
-        <br>
-        <a class="kadai" href="https://github.com/Tsubasa213/game1-typing.git">★タイピングゲーム</a>
-        <p class="size2">自主制作物として、タイピングゲームを製作しました。<br>
-            自分自身まだタイピングが拙いところがあるのでこのゲームを製作しようと考えました。
-            起動すると、選択画面が表示されるので矢印キーを使って難易度を選択すると始まります。
-            60秒でどれだけスコアを上げれるかというゲームで一問正答につき、1000ポイント。また、一問間違えるごとに-500ポイントされます。
-            時間が終了するとスコア画面が表示され、Enterキーで選択画面に戻れます。
-            対応している文字や単語数がまだ少ないので今後追加していきます。<br>
-            以下に対応文字等について述べます。</p>
-        <br>
-        <table class="size2">
-            <tr>
-                <th>・</th>
-                <td>「ん」は「ｎ」の単押し</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>「ん」が最後にある場合も「ｎ」の単押し</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>「じかん」などのじは「j」を使う</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>小文字は「ｌ〇」のような使い方は不可</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>「つ」は「tu」とする</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>「ふ」は「hu」とする</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>「ち」は「ti」とする</td>
-            </tr>
-            <tr>
-                <th>・</th>
-                <td>「つ」は「tu」とする</td>
-            </tr>
-        </table>
-        <br>
-        <div class="carousel">
-            <div class="contains">
-                <input class="slide_select" type="radio" id="SlideA" name="slide_check" checked />
-                <input class="slide_select" type="radio" id="SlideB" name="slide_check" />
-                <input class="slide_select" type="radio" id="SlideC" name="slide_check" />
-                <div class="slide">
-                    <div class="scroll_controler">
-                        <label class="scroll_button scroll_prev" for="SlideC"></label>
-                        <label class="scroll_button scroll_next" for="SlideB"></label>
-                    </div>
-                    <img class="photo" src="images/serect_typing.png" alt="選択画面" >
-                </div>
-                <div class="slide">
-                    <div class="controler_scroll">
-                        <label class="scroll_button scroll_prev" for="SlideA"></label>
-                        <label class="scroll_button scroll_next" for="SlideC"></label>
-                    </div>
-                    <img class="photo" src="images/gamenow_typing.png" alt="ゲーム画面">
-                </div>
-                <div class="slide">
-                    <div class="controler_scroll">
-                        <label class="scroll_button scroll_prev" for="SlideB"></label>
-                        <label class="scroll_button scroll_next" for="SlideA"></label>
-                    </div>
-                    <img class="photo" src="images/score_typing.png" alt="スコア画面">
-                </div>
-                <div class="move_controler">
-                    <label class="button_move" for="SlideA"></label>
-                    <label class="button_move" for="SlideB"></label>
-                    <label class="button_move" for="SlideC"></label>
-                </div>
-            </div>
-        </div>
-        <br>
-        <ul>
-            <li class="size1">多機能メモ帳</li>
-        </ul>
-        <br>
-        <a class="kadai" href="https://github.com/Tsubasa213/pyside_memo.git">★メモ帳</a>
-        <p class="size2">PySideを使用し、簡単なメモをテキストファイルとして指定したファイルに保存、
-            テキストファイルをアプリ内で開く、さらにテンプレートの呼び出しなどの機能が備わったメモ帳です。<br>
-            ファイルは半角英数字のみを受け付けます。また、初めてアプリを開きテキストファイルを保存する場合、親フォルダを設定することができます。
-            そして、2度目以降にアプリを開き保存すると、1度目に選択した親フォルダに保存されます。
-            ファイル名が重複する場合、上書きをするかの確認が入ります。
-        </p>
-        <br>
-        <div class="carousel">
-            <div class="contains">
-                <input class="slide_select" type="radio" id="SlideD" name="slide1_check" checked />
-                <input class="slide_select" type="radio" id="SlideE" name="slide1_check" />
-                <input class="slide_select" type="radio" id="SlideF" name="slide1_check" />
-                <div class="slide">
-                    <div class="scroll_controler">
-                        <label class="scroll_button scroll_prev" for="SlideF"></label>
-                        <label class="scroll_button scroll_next" for="SlideE"></label>
-                    </div>
-                    <img class="photo" src="images/memo top.png" alt="トップ画面" >
-                </div>
-                <div class="slide">
-                    <div class="controler_scroll">
-                        <label class="scroll_button scroll_prev" for="SlideD"></label>
-                        <label class="scroll_button scroll_next" for="SlideF"></label>
-                    </div>
-                    <img class="photo" src="images/oyafail.JPG" alt="親フォルダの設定">
-                </div>
-                <div class="slide">
-                    <div class="controler_scroll">
-                        <label class="scroll_button scroll_prev" for="SlideE"></label>
-                        <label class="scroll_button scroll_next" for="SlideD"></label>
-                    </div>
-                    <img class="photo" src="images/tyohukucheck.png" alt="重複確認">
-                </div>
-                <div class="move_controler">
-                    <label class="button_move" for="SlideD"></label>
-                    <label class="button_move" for="SlideE"></label>
-                    <label class="button_move" for="SlideF"></label>
-                </div>
-            </div>
-        </div>
-        <ul>
-            <li class="size1">js説明書</li>
-        </ul>
-        <br>
-        <a class="kadai" href="https://tsubasa213.github.io/js-01/">★JavaScriptの基本構文のWebサイト</a>
-        <p class="size2">JavaScriptにおける基本構文や特徴についてまとめたサイトです。このサイトを作成するにあたって注意した点や工夫した点は2つ。
-            1つ目は、自分な好きな色から、補色や相性の良い色を見つけ出して読みやすく、Portfolioとの色感に違和感が生まれにくいようにすることを心掛けました。
-            2つ目は、サンプルコードをコピーするJSを作成したことです。また、コピー後に一定時間「コピー完了!」と書くことで、直感的にコピーされたことが分かるようにも心掛けました。
-        </p>
-    </div>
-    <br>
-    <ul>
-        <li class="size1">RAMEN-blog</li>
-    </ul>
-    <br>
-    <a class="kadai" href="https://github.com/Tsubasa213/next-blog-app">★ブログリポジトリ</a><br>
-    <a class="kadai" href="https://next-blog-app-sharla-aso.vercel.app/">★公開URL</a>
-    <p class="size2">reactを使ったブログアプリの作成を行いました。制作期間は2024年12月~2025年2月です。
-        <br>
-        このアプリは、ブログの投稿、編集、削除、閲覧ができるアプリです。また、カテゴリなどの機能も充実させました。レスポンシブデザインにも対応しており、スマホでも見やすいようにしました。
-        このサイトで工夫した点は、カテゴリのUI/UXを工夫しました。カテゴリを選択すると、ドロップダウン形式でカテゴリが表示され、選択することができます。また、カテゴリを選択すると、そのカテゴリに属する記事のみが表示されるようにしました。
-        このアプリで今後追加したい機能はラーメンの店舗情報をpostに加えて、マップ情報に飛べるようにすることです。
-    </p>
-
-    <br>
-    <div class="carousel">
-        <div class="contains">
-            <input class="slide_select" type="radio" id="SlideG" name="slide1_check" checked />
-            <input class="slide_select" type="radio" id="SlideH" name="slide1_check" />
-            <input class="slide_select" type="radio" id="SlideI" name="slide1_check" />
-            <div class="slide">
-                <div class="scroll_controler">
-                    <label class="scroll_button scroll_prev" for="SlideI"></label>
-                    <label class="scroll_button scroll_next" for="SlideH"></label>
-                </div>
-                <img class="photo" src="images/postview.png" alt="トップ画面" >
-            </div>
-            <div class="slide">
-                <div class="controler_scroll">
-                    <label class="scroll_button scroll_prev" for="SlideG"></label>
-                    <label class="scroll_button scroll_next" for="SlideI"></label>
-                </div>
-                <img class="photo" src="images/Post.png" alt="ポスト作成">
-            </div>
-            <div class="slide">
-                <div class="controler_scroll">
-                    <label class="scroll_button scroll_prev" for="SlideH"></label>
-                    <label class="scroll_button scroll_next" for="SlideG"></label>
-                </div>
-                <img class="photo" src="images/categories.png" alt="カテゴリ作成">
-            </div>
-            <div class="move_controler">
-                <label class="button_move" for="SlideG"></label>
-                <label class="button_move" for="SlideH"></label>
-                <label class="button_move" for="SlideI"></label>
-            </div>
-        </div>
-    </div>
-    <br>
+    </main>
 
     <footer>
         <p>E-mail // rg22152t@st.omu.ac.jp</p>
         <p>© copyright 2025 Tsubasa213/つばさ all right resolved.</p>
     </footer>
 </body>
+<script src="/assets/js/port.js" defer></script>
 </html>

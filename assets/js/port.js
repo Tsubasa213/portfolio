@@ -1,33 +1,79 @@
-//線が伸びるための設定を関数でまとめる
-function ScrollTimelineAnime(){
-    $('.timeline li').each(function(){// それぞれのli要素の
-      var elemPos = $(this).offset().top;// 上からの高さ取得
-      var scroll = $(window).scrollTop();// スクロール値取得
-      var windowHeight = $(window).height();// windowの高さ取得
-      var startPoint = 100; //線をスタートさせる位置を指定※レイアウトによって調整してください
-      if (scroll >= elemPos - windowHeight-startPoint){       
-        var H = $(this).outerHeight(true)//liの余白と高さを含めた数値を取得
-        //スクロール値から要素までの高さを引いた値を、liの高さの半分のパーセントで出す
-        var percent = (scroll+startPoint - elemPos) / (H/2) *100;//liの余白と高さの半分で線を100％に伸ばす
+// 現在のページをハイライト
+document.addEventListener('DOMContentLoaded', function() {
+  const currentLocation = window.location.pathname;
+  const navLinks = document.querySelectorAll('.main-nav a');
   
-        // 100% を超えたらずっと100%を入れ続ける
-        if(percent  > 100){
-          percent  = 100;
+  navLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+    // パスの一部が一致するか確認（サブフォルダも含む）
+    if (currentLocation.includes(linkPath) && linkPath !== '/index.html') {
+      link.classList.add('active');
+    } else if (currentLocation === '/' && linkPath === '/index.html') {
+      link.classList.add('active');
+    }
+  });
+  
+  // タイムラインのアニメーション（Careerページ用）
+  const timelines = document.querySelectorAll('.timeline li');
+  
+  if (timelines.length > 0) {
+    // Intersection Observerを使用して、要素が画面に表示されたらアニメーションを開始
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const borderLine = entry.target.querySelector('.border-line');
+          borderLine.style.height = '100%';
+          borderLine.style.transition = 'height 2s ease';
+          observer.unobserve(entry.target);
         }
-        // ボーダーの長さをセット
-        $(this).children('.border-line').css({
-          height: percent + "%", //CSSでパーセント指定
-        });
-      } 
+      });
+    });
+    
+    timelines.forEach(timeline => {
+      observer.observe(timeline);
     });
   }
   
-  // 画面をスクロールをしたら動かしたい場合の記述
-  $(window).on('scroll', function(){
-    ScrollTimelineAnime();// 線が伸びる関数を呼ぶ
-  });
+  // カルーセルの自動切り替え（設定したい場合）
+  const carousels = document.querySelectorAll('.carousel');
+  if (carousels.length > 0) {
+    // カルーセルの自動切り替えのコードがここに入ります
+  }
   
-  // ページが読み込まれたらすぐに動かしたい場合の記述
-  $(window).on('load', function(){
-    ScrollTimelineAnime();// 線が伸びる関数を呼ぶ
-  });
+  // ハンバーガーメニューの機能
+  console.log("ハンバーガーメニューの初期化"); // デバッグ用
+  const hamburgerBtn = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  console.log("ハンバーガーボタン:", hamburgerBtn); // デバッグ用
+  console.log("ナビメニュー:", navMenu); // デバッグ用
+  
+  if (hamburgerBtn && navMenu) {
+    // ハンバーガーボタンのクリックイベント
+    hamburgerBtn.addEventListener('click', function(e) {
+      console.log("ハンバーガーボタンがクリックされました"); // デバッグ用
+      e.preventDefault(); // イベントのデフォルト動作を防止
+      navMenu.classList.toggle('active');
+      hamburgerBtn.classList.toggle('active');
+    });
+    
+    // メニュー項目をクリックしたらメニューを閉じる
+    const menuItems = document.querySelectorAll('.nav-menu a');
+    menuItems.forEach(item => {
+      item.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        hamburgerBtn.classList.remove('active');
+      });
+    });
+    
+    // ウィンドウサイズ変更時にメニューの状態をリセット
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        navMenu.classList.remove('active');
+        hamburgerBtn.classList.remove('active');
+      }
+    });
+  } else {
+    console.error("ハンバーガーメニューの要素が見つかりません"); // デバッグ用
+  }
+});
