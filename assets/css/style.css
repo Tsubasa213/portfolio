@@ -24,13 +24,12 @@ header {
 
 .site-title {
   list-style: none;
-  text-decoration: none;
-  display: flex;
   color: #B7E7F7;
   margin: 0;
   font-family: 'Neon Glow', sans-serif;
   font-size: 24px;
   text-shadow: 0 0 1rem #B7E7F7;
+  pointer-events: none; /* ハイパーリンクの効果を無効化 */
 }
 
 /* ナビゲーションのスタイル */
