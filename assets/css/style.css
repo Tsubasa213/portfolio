@@ -23,6 +23,7 @@ header {
 }
 
 .site-title {
+  list-style: none;
   color: #B7E7F7;
   margin: 0;
   font-family: 'Neon Glow', sans-serif;
@@ -37,6 +38,7 @@ header {
   font-size: inherit;
   text-shadow: inherit;
 }
+
 
 
 /* ナビゲーションのスタイル */
