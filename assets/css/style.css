@@ -200,7 +200,7 @@ main {
   text-align: justify;
 }
 
-/* タイムライン */
+/* タイムライン
 .timeline {
   max-width: 400px;
   width: 100%;
@@ -246,7 +246,7 @@ main {
   height: 10px;
   background: aqua;
   border-radius: 50%;
-}
+} */
 
 /* プロジェクト */
 .project {
