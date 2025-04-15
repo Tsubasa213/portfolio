@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // カルーセルの自動切り替えのコードがここに入ります
   }
   
+  
   // ハンバーガーメニューの機能
   console.log("ハンバーガーメニューの初期化"); // デバッグ用
   const hamburgerBtn = document.querySelector('.hamburger');
