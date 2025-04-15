@@ -29,7 +29,6 @@ header {
   font-family: 'Neon Glow', sans-serif;
   font-size: 24px;
   text-shadow: 0 0 1rem #B7E7F7;
-  pointer-events: none; /* ハイパーリンクの効果を無効化 */
 }
 
 /* ナビゲーションのスタイル */
@@ -130,9 +129,6 @@ main {
 }
 
 /* ヒーローセクション */
-.hero {
-  padding: 60px 0;
-}
 
 .intro {
   font-size: 24px;
