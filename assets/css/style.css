@@ -24,6 +24,7 @@ header {
 
 .site-title {
   list-style: none;
+  display: flex;
   color: #B7E7F7;
   margin: 0;
   font-family: 'Neon Glow', sans-serif;
