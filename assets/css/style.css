@@ -200,53 +200,7 @@ main {
   text-align: justify;
 }
 
-/* タイムライン
-.timeline {
-  max-width: 400px;
-  width: 100%;
-  margin: 50px auto;
-  padding: 0 30px;
-  font-size: 20px;
-}
 
-.timeline li {
-  position: relative;
-  list-style: none;
-  padding: 0 0 20px 0;
-}
-
-.timeline dl {
-  margin: 0 0 20px 3em;
-}
-
-.timeline dt {
-  font-size: 25px;
-}
-
-.timeline dd strong {
-  display: block;
-  padding: 10px 0;
-}
-
-.border-line {
-  position: absolute;
-  left: 0.4em;
-  top: 0;
-  width: 2px;
-  height: 0;
-  background: #ccc;
-}
-
-.timeline li::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  background: aqua;
-  border-radius: 50%;
-} */
 
 /* プロジェクト */
 .project {
@@ -371,7 +325,7 @@ footer {
     content: '';
     width: 12px;
     height: 12px;
-    background: #6fc173;
+    background: #96fff8;
     position: absolute;
     left: -7.5px;
     top: 24px;
