@@ -1,5 +1,6 @@
-// 既存のDOMContentLoadedイベントリスナーの中に追加します
 document.addEventListener('DOMContentLoaded', function() {
+  // 既存のコード（ナビゲーションハイライト、ハンバーガーメニューなど）を維持
+
   const currentLocation = window.location.pathname;
   const navLinks = document.querySelectorAll('.main-nav a');
   
@@ -12,18 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     }
   });
-  
+
   // タイムラインのアニメーション（Careerページ用）
   const timelineItems = document.querySelectorAll('.timeline > li');
   
   if (timelineItems.length > 0) {
-    // 初期状態ですべての要素を非表示にする
-    timelineItems.forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateX(-30px)';
-      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
     // Intersection Observerを使用して、要素が画面に表示されたらアニメーションを開始
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
@@ -32,12 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
           setTimeout(() => {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateX(0)';
-            
-            // オプション: マーカーと線のアニメーション
-            const marker = entry.target.querySelector(':after');
-            const line = entry.target.querySelector(':before');
-            if (marker) marker.style.animation = 'pulse 2s infinite';
-            
             observer.unobserve(entry.target);
           }, index * 200); // 各要素に200msの遅延を追加
         }
@@ -47,57 +35,131 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     timelineItems.forEach(item => {
+      // 初期状態を設定
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-30px)';
+      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      
       observer.observe(item);
     });
   }
+
+  // ギャラリー要素にアニメーション効果を追加
+  const galleryItems = document.querySelectorAll('.gallery-item');
   
-  // タイムラインの日付が点滅するエフェクト
-  const timelineDates = document.querySelectorAll('.timeline-date');
-  timelineDates.forEach(date => {
-    date.addEventListener('mouseenter', function() {
-      this.style.textShadow = '0 0 10px #96fff8, 0 0 20px #96fff8';
-      this.style.transition = 'text-shadow 0.3s ease';
+  if (galleryItems.length > 0) {
+    const galleryObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('fade-in');
+            galleryObserver.unobserve(entry.target);
+          }, index * 100);
+        }
+      });
+    }, {
+      threshold: 0.2
     });
     
-    date.addEventListener('mouseleave', function() {
-      this.style.textShadow = 'none';
+    galleryItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      
+      galleryObserver.observe(item);
+      
+      // クリックイベントでモーダル表示
+      item.addEventListener('click', function() {
+        const imgSrc = this.querySelector('img').src;
+        const altText = this.querySelector('img').alt;
+        openModal(imgSrc, altText, this.dataset.index);
+      });
     });
-  });
+  }
+
+  // モーダル関連の機能
+  const modal = document.getElementById('imageModal');
   
-  // タイムラインコンテンツのホバーエフェクト強化
-  const timelineContents = document.querySelectorAll('.timeline-content');
-  timelineContents.forEach(content => {
-    content.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-8px)';
-      this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
-      this.style.borderLeft = '4px solid #fff';
+  if (modal) {
+    // モーダルを閉じる機能
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // 背景クリックでも閉じられるように
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
     });
     
-    content.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(-5px)';
-      this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
-      this.style.borderLeft = '4px solid #96fff8';
+    // キーボードでの操作
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowRight') {
+        navigateModal('next');
+      } else if (e.key === 'ArrowLeft') {
+        navigateModal('prev');
+      }
     });
-  });
+    
+    // ナビゲーションボタン
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
+    
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', function() {
+        navigateModal('prev');
+      });
+      
+      nextBtn.addEventListener('click', function() {
+        navigateModal('next');
+      });
+    }
+  } else {
+    // モーダルがない場合は作成
+    createModalElement();
+  }
+
+  // プロジェクト要素にアニメーション効果
+  const projects = document.querySelectorAll('.project');
+  
+  if (projects.length > 0) {
+    const projectObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          projectObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    projects.forEach(project => {
+      project.style.opacity = '0';
+      project.style.transform = 'translateY(30px)';
+      project.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      
+      projectObserver.observe(project);
+    });
+  }
 
   // ハンバーガーメニューの機能
-  console.log("ハンバーガーメニューの初期化"); // デバッグ用
   const hamburgerBtn = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
   
-  console.log("ハンバーガーボタン:", hamburgerBtn); // デバッグ用
-  console.log("ナビメニュー:", navMenu); // デバッグ用
-  
   if (hamburgerBtn && navMenu) {
-    // ハンバーガーボタンのクリックイベント
     hamburgerBtn.addEventListener('click', function(e) {
-      console.log("ハンバーガーボタンがクリックされました"); // デバッグ用
-      e.preventDefault(); // イベントのデフォルト動作を防止
+      e.preventDefault();
       navMenu.classList.toggle('active');
       hamburgerBtn.classList.toggle('active');
     });
     
-    // メニュー項目をクリックしたらメニューを閉じる
     const menuItems = document.querySelectorAll('.nav-menu a');
     menuItems.forEach(item => {
       item.addEventListener('click', function() {
@@ -106,35 +168,168 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
     
-    // ウィンドウサイズ変更時にメニューの状態をリセット
     window.addEventListener('resize', function() {
       if (window.innerWidth > 768) {
         navMenu.classList.remove('active');
         hamburgerBtn.classList.remove('active');
       }
     });
-  } else {
-    console.error("ハンバーガーメニューの要素が見つかりません"); // デバッグ用
   }
 });
 
-// タイムラインのドットがキラキラ光るアニメーション用のCSSを追加
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(150, 255, 248, 0.7);
+// モーダルを開く関数
+function openModal(imgSrc, altText, currentIndex) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const caption = document.getElementById('modalCaption');
+  
+  if (modal && modalImg) {
+    modalImg.src = imgSrc;
+    modalImg.dataset.index = currentIndex;
+    
+    if (caption && altText) {
+      caption.textContent = altText;
     }
-    70% {
-      box-shadow: 0 0 0 10px rgba(150, 255, 248, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(150, 255, 248, 0);
-    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // スクロール防止
+  }
+}
+
+// モーダルを閉じる関数
+function closeModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // スクロール復活
+  }
+}
+
+// モーダル内の画像切り替え関数
+function navigateModal(direction) {
+  const modalImg = document.getElementById('modalImage');
+  const caption = document.getElementById('modalCaption');
+  if (!modalImg) return;
+  
+  const currentIndex = parseInt(modalImg.dataset.index);
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const totalItems = galleryItems.length;
+  
+  if (totalItems === 0) return;
+  
+  let newIndex;
+  if (direction === 'next') {
+    newIndex = (currentIndex + 1) % totalItems;
+  } else {
+    newIndex = (currentIndex - 1 + totalItems) % totalItems;
   }
   
-  .timeline > li:after {
-    animation: pulse 2s infinite;
+  const newItem = galleryItems[newIndex];
+  const newImgSrc = newItem.querySelector('img').src;
+  const newAltText = newItem.querySelector('img').alt;
+  
+  modalImg.src = newImgSrc;
+  modalImg.dataset.index = newIndex;
+  
+  if (caption) {
+    caption.textContent = newAltText;
   }
-`;
-document.head.appendChild(style);
+}
+
+// モーダル要素がない場合に作成する関数
+function createModalElement() {
+  const modalHTML = `
+    <div id="imageModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div class="modal-caption" id="modalCaption"></div>
+      <div class="modal-nav">
+        <button class="modal-prev">&lt;</button>
+        <button class="modal-next">&gt;</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  
+  // 作成後にイベントリスナーを追加
+  const modal = document.getElementById('imageModal');
+  const closeBtn = document.querySelector('.modal-close');
+  const prevBtn = document.querySelector('.modal-prev');
+  const nextBtn = document.querySelector('.modal-next');
+  
+  closeBtn.addEventListener('click', closeModal);
+  
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  
+  prevBtn.addEventListener('click', function() {
+    navigateModal('prev');
+  });
+  
+  nextBtn.addEventListener('click', function() {
+    navigateModal('next');
+  });
+}
+
+// 古いカルーセルをギャラリーに変換する関数（ページ読み込み時に実行）
+function convertCarouselsToGalleries() {
+  const carousels = document.querySelectorAll('.carousel');
+  
+  carousels.forEach((carousel, carouselIndex) => {
+    const slides = carousel.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    // 新しいギャラリー要素を作成
+    const gallery = document.createElement('div');
+    gallery.className = 'gallery';
+    
+    slides.forEach((slide, index) => {
+      const img = slide.querySelector('img');
+      if (!img) return;
+      
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+      galleryItem.dataset.index = index + (carouselIndex * 100); // ユニークなインデックス
+      
+      const newImg = document.createElement('img');
+      newImg.src = img.src;
+      newImg.alt = img.alt;
+      
+      const caption = document.createElement('div');
+      caption.className = 'gallery-caption';
+      caption.textContent = img.alt;
+      
+      galleryItem.appendChild(newImg);
+      galleryItem.appendChild(caption);
+      gallery.appendChild(galleryItem);
+    });
+    
+    // 古いカルーセルを新しいギャラリーに置き換え
+    carousel.parentNode.replaceChild(gallery, carousel);
+  });
+}
+
+// DOMContentLoadedイベントでカルーセル変換関数を呼び出す
+document.addEventListener('DOMContentLoaded', function() {
+  // 既存の処理の後に追加
+  convertCarouselsToGalleries();
+  
+  // モーダル要素の作成
+  if (!document.getElementById('imageModal')) {
+    createModalElement();
+  }
+  
+  // ギャラリーアイテムに対して再度イベントリスナーを追加
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const imgSrc = this.querySelector('img').src;
+      const altText = this.querySelector('img').alt;
+      openModal(imgSrc, altText, this.dataset.index);
+    });
+  });
+});
