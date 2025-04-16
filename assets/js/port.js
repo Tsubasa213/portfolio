@@ -1,4 +1,4 @@
-// 現在のページをハイライト
+// 既存のDOMContentLoadedイベントリスナーの中に追加します
 document.addEventListener('DOMContentLoaded', function() {
   const currentLocation = window.location.pathname;
   const navLinks = document.querySelectorAll('.main-nav a');
@@ -14,33 +14,72 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // タイムラインのアニメーション（Careerページ用）
-  const timelines = document.querySelectorAll('.timeline li');
+  const timelineItems = document.querySelectorAll('.timeline > li');
   
-  if (timelines.length > 0) {
-    // Intersection Observerを使用して、要素が画面に表示されたらアニメーションを開始
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const borderLine = entry.target.querySelector('.border-line');
-          borderLine.style.height = '100%';
-          borderLine.style.transition = 'height 2s ease';
-          observer.unobserve(entry.target);
-        }
-      });
+  if (timelineItems.length > 0) {
+    // 初期状態ですべての要素を非表示にする
+    timelineItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-30px)';
+      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
     
-    timelines.forEach(timeline => {
-      observer.observe(timeline);
+    // Intersection Observerを使用して、要素が画面に表示されたらアニメーションを開始
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // 遅延を設定して順番に表示させる
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+            
+            // オプション: マーカーと線のアニメーション
+            const marker = entry.target.querySelector(':after');
+            const line = entry.target.querySelector(':before');
+            if (marker) marker.style.animation = 'pulse 2s infinite';
+            
+            observer.unobserve(entry.target);
+          }, index * 200); // 各要素に200msの遅延を追加
+        }
+      });
+    }, {
+      threshold: 0.2 // 要素の20%が見えたらアニメーション開始
+    });
+    
+    timelineItems.forEach(item => {
+      observer.observe(item);
     });
   }
   
-  // カルーセルの自動切り替え（設定したい場合）
-  const carousels = document.querySelectorAll('.carousel');
-  if (carousels.length > 0) {
-    // カルーセルの自動切り替えのコードがここに入ります
-  }
+  // タイムラインの日付が点滅するエフェクト
+  const timelineDates = document.querySelectorAll('.timeline-date');
+  timelineDates.forEach(date => {
+    date.addEventListener('mouseenter', function() {
+      this.style.textShadow = '0 0 10px #96fff8, 0 0 20px #96fff8';
+      this.style.transition = 'text-shadow 0.3s ease';
+    });
+    
+    date.addEventListener('mouseleave', function() {
+      this.style.textShadow = 'none';
+    });
+  });
   
-  
+  // タイムラインコンテンツのホバーエフェクト強化
+  const timelineContents = document.querySelectorAll('.timeline-content');
+  timelineContents.forEach(content => {
+    content.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-8px)';
+      this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
+      this.style.borderLeft = '4px solid #fff';
+    });
+    
+    content.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(-5px)';
+      this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
+      this.style.borderLeft = '4px solid #96fff8';
+    });
+  });
+
   // ハンバーガーメニューの機能
   console.log("ハンバーガーメニューの初期化"); // デバッグ用
   const hamburgerBtn = document.querySelector('.hamburger');
@@ -78,3 +117,24 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error("ハンバーガーメニューの要素が見つかりません"); // デバッグ用
   }
 });
+
+// タイムラインのドットがキラキラ光るアニメーション用のCSSを追加
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(150, 255, 248, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(150, 255, 248, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(150, 255, 248, 0);
+    }
+  }
+  
+  .timeline > li:after {
+    animation: pulse 2s infinite;
+  }
+`;
+document.head.appendChild(style);

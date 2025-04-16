@@ -293,48 +293,97 @@ footer {
   }
 }
 
+/* タイムラインのベーススタイル */
 .timeline {
   list-style: none;
   padding: 0;
   margin: 50px auto;
   max-width: 800px;
   font-size: 18px;
+  text-align: left; /* 左揃えに設定 */
 }
 
 .timeline > li {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 30px;
 }
 
-/* for Desktop */
-@media (min-width: 640px) {
-  .timeline > li {
-    overflow: hidden;
-    margin: 0;
-    position: relative;
-  }
+.timeline-date {
+  font-weight: bold;
+  color: #96fff8;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  position: relative;
+}
 
-  .timeline-date {
-    width: 110px;
-    float: left;
-    margin-top: 20px;
-  }
+.timeline-content {
+  background-color: rgba(72, 72, 72, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #96fff8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  color: #d0d0d0;
+}
+
+/* タイムラインの線と丸 */
+.timeline > li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  height: calc(100% + 40px); /* 次のアイテムまでの距離 */
+  width: 2px;
+  background: rgba(150, 255, 248, 0.4);
+}
+
+.timeline > li:last-child:before {
+  height: 30px; /* 最後のアイテムは短く */
+}
+
+.timeline > li:after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #96fff8;
+  box-shadow: 0 0 10px #96fff8;
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 768px) {
   .timeline-content {
-    width: 75%;
-    float: left;
-    border-left: 3px #e5e5d1 solid;
-    padding-left: 30px;
-    position: relative;
+    margin-left: 20px;
+    width: calc(100% - 20px);
   }
+}
 
-  .timeline-content:before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #96fff8;
-    position: absolute;
-    left: -7.5px;
-    top: 24px;
-    border-radius: 100%;
+@media (max-width: 767px) {
+  .timeline > li {
+    padding-left: 25px;
+  }
+  
+  .timeline-content {
+    width: 100%;
   }
 }
