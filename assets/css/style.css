@@ -598,6 +598,18 @@ table.size2 th {
 
 /* レスポンシブ対応 */
 @media only screen and (max-width: 768px) {
+  /* スマホ向けのプロジェクトタイトル調整 */
+  .project-title {
+    font-size: 24px;
+    color: #fff;
+    /* ピンク色のシャドウを簡略化し、ぼやけを軽減 */
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #ff00ff,
+      0 0 20px #ff00ff;
+    margin-bottom: 12px;
+  }
+
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
@@ -635,5 +647,15 @@ table.size2 th {
   
   .timeline-content {
     width: 100%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .project-title {
+    font-size: 22px;
+    /* さらにシャドウを減らして鮮明に */
+    text-shadow:
+      0 0 3px #fff,
+      0 0 8px #ff00ff,
+      0 0 15px #ff00ff;
   }
 }
