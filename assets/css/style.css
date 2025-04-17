@@ -211,12 +211,12 @@ main {
   max-width: 700px;
 }
 
+/* 説明テキスト */
 .size2 {
   max-width: 100%;
   margin: 20px auto;
   line-height: 1.6;
 }
-
 
 
 
@@ -256,7 +256,6 @@ main {
     0 0 151px #ff00ff;
   margin-bottom: 15px;
 }
-
 /* カルーセル (既存のスタイルを維持) */
 .carousel {
   display: flex;
@@ -283,6 +282,164 @@ footer {
   margin-top: 10px;
 }
 
+/* レスポンシブ */
+@media only screen and (max-width: 480px) {
+  .photo, .contains, .slide {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .About {
+    margin-left: 0;
+  }
+  
+  .heading {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 670px) {
+  .photo, .contains, .slide {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 671px) {
+  .about-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .About {
+    margin: 0;
+  }
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 50px auto;
+  max-width: 800px;
+  font-size: 18px;
+}
+
+.timeline > li {
+  margin-bottom: 60px;
+}
+
+/* for Desktop */
+@media (min-width: 640px) {
+  .timeline > li {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+  }
+
+  .timeline-date {
+    width: 110px;
+    float: left;
+    margin-top: 20px;
+  }
+
+  .timeline-content {
+    width: 75%;
+    float: left;
+    border-left: 3px #e5e5d1 solid;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .timeline-content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #96fff8;
+    position: absolute;
+    left: -7.5px;
+    top: 24px;
+    border-radius: 100%;
+  }
+}
+
+/* タイムラインのベーススタイル */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 50px auto;
+  max-width: 800px;
+  font-size: 18px;
+  text-align: left; /* 左揃えに設定 */
+}
+
+.timeline > li {
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #96fff8;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.timeline-content {
+  background-color: rgba(72, 72, 72, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #96fff8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  color: #d0d0d0;
+}
+
+/* タイムラインの線と丸 */
+.timeline > li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  height: calc(100% + 40px); /* 次のアイテムまでの距離 */
+  width: 2px;
+  background: rgba(150, 255, 248, 0.4);
+}
+
+.timeline > li:last-child:before {
+  height: 30px; /* 最後のアイテムは短く */
+}
+
+.timeline > li:after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #96fff8;
+  box-shadow: 0 0 10px #96fff8;
+}
 
 /* 新しいギャラリースタイル */
 .gallery {
@@ -438,83 +595,6 @@ table.size2 th {
   color: #B7E7F7;
 }
 
-/* タイムラインのベーススタイル */
-.timeline {
-  list-style: none;
-  padding: 0;
-  margin: 50px auto;
-  max-width: 800px;
-  font-size: 18px;
-  text-align: left; /* 左揃えに設定 */
-}
-
-.timeline > li {
-  margin-bottom: 40px;
-  position: relative;
-  padding-left: 30px;
-}
-
-.timeline-date {
-  font-weight: bold;
-  color: #96fff8;
-  margin-bottom: 8px;
-  font-size: 1.2em;
-  position: relative;
-}
-
-.timeline-content {
-  background-color: rgba(72, 72, 72, 0.7);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border-left: 4px solid #96fff8;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.timeline-content h3 {
-  margin-top: 0;
-  color: #fff;
-  font-size: 1.3em;
-  margin-bottom: 10px;
-}
-
-.timeline-content p {
-  margin-bottom: 0;
-  color: #d0d0d0;
-}
-
-/* タイムラインの線と丸 */
-.timeline > li:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  height: calc(100% + 40px); /* 次のアイテムまでの距離 */
-  width: 2px;
-  background: rgba(150, 255, 248, 0.4);
-}
-
-.timeline > li:last-child:before {
-  height: 30px; /* 最後のアイテムは短く */
-}
-
-.timeline > li:after {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: 8px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #96fff8;
-  box-shadow: 0 0 10px #96fff8;
-}
-
 /* レスポンシブ対応 */
 @media only screen and (max-width: 768px) {
   .gallery {
@@ -537,54 +617,22 @@ table.size2 th {
     font-size: 30px;
     padding: 10px;
   }
-  
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 768px) {
+  .timeline-content {
+    margin-left: 20px;
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 767px) {
   .timeline > li {
     padding-left: 25px;
   }
   
   .timeline-content {
     width: 100%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .photo, .contains, .slide {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-  }
-  
-  .About {
-    margin-left: 0;
-  }
-  
-  .heading {
-    font-size: 35px;
-  }
-}
-
-@media only screen and (min-width: 481px) and (max-width: 670px) {
-  .photo, .contains, .slide {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-  }
-}
-
-@media only screen and (min-width: 671px) {
-  .about-content {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .About {
-    margin: 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .timeline-content {
-    margin-left: 20px;
-    width: calc(100% - 20px);
   }
 }
