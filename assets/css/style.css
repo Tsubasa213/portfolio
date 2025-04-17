@@ -322,7 +322,7 @@ footer {
 /* タイムラインのベーススタイル */
 .timeline {
   list-style: none;
-  padding: 0;
+  padding: 0 0 0 15px; /* 左にパディングを追加して全体を右に移動 */
   margin: 50px auto;
   max-width: 800px;
   font-size: 18px;
@@ -332,14 +332,14 @@ footer {
 .timeline > li {
   margin-bottom: 40px;
   position: relative;
-  padding-left: 35px; /* 左パディングを少し増やして丸点のスペースを確保 */
+  padding-left: 40px; /* 左パディングをさらに増やして丸点と線のスペースを確保 */
 }
 
-/* タイムラインの線と丸の修正 - 中央寄りに調整 */
+/* タイムラインの線と丸の修正 - 大幅に右へ移動 */
 .timeline > li:before {
   content: '';
   position: absolute;
-  left: 5px; /* 線の位置を右に移動（中央寄りに） */
+  left: 10px; /* 線の位置をさらに右に移動 */
   top: 8px;
   height: calc(100% + 40px);
   width: 2px;
@@ -353,7 +353,7 @@ footer {
 .timeline > li:after {
   content: '';
   position: absolute;
-  left: 1px; /* 丸点の位置を右に移動（見切れないように） */
+  left: 6px; /* 丸点の位置をさらに右に移動 */
   top: 8px;
   width: 10px;
   height: 10px;
@@ -370,119 +370,10 @@ footer {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border-left: 4px solid #96fff8;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: calc(100% - 35px); /* パディング増加に合わせて調整 */
+  width: calc(100% - 10px); /* パディング増加に合わせて調整 */
   box-sizing: border-box;
 }
-/* for Desktop */
-@media (min-width: 640px) {
-  .timeline > li {
-    overflow: hidden;
-    margin: 0;
-    position: relative;
-  }
 
-  .timeline-date {
-    width: 110px;
-    float: left;
-    margin-top: 20px;
-  }
-
-  .timeline-content {
-    width: 75%;
-    float: left;
-    border-left: 3px #e5e5d1 solid;
-    padding-left: 30px;
-    position: relative;
-  }
-
-  .timeline-content:before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #96fff8;
-    position: absolute;
-    left: -7.5px;
-    top: 24px;
-    border-radius: 100%;
-  }
-}
-
-/* タイムラインのベーススタイル */
-.timeline {
-  list-style: none;
-  padding: 0;
-  margin: 50px auto;
-  max-width: 800px;
-  font-size: 18px;
-  text-align: left; /* 左揃えに設定 */
-}
-
-.timeline > li {
-  margin-bottom: 40px;
-  position: relative;
-  padding-left: 30px;
-}
-
-.timeline-date {
-  font-weight: bold;
-  color: #96fff8;
-  margin-bottom: 8px;
-  font-size: 1.2em;
-  position: relative;
-}
-
-.timeline-content {
-  background-color: rgba(72, 72, 72, 0.7);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border-left: 4px solid #96fff8;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.timeline-content h3 {
-  margin-top: 0;
-  color: #fff;
-  font-size: 1.3em;
-  margin-bottom: 10px;
-}
-
-.timeline-content p {
-  margin-bottom: 0;
-  color: #d0d0d0;
-}
-
-/* タイムラインの線と丸 */
-.timeline > li:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  height: calc(100% + 40px); /* 次のアイテムまでの距離 */
-  width: 2px;
-  background: rgba(150, 255, 248, 0.4);
-}
-
-.timeline > li:last-child:before {
-  height: 30px; /* 最後のアイテムは短く */
-}
-
-.timeline > li:after {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: 8px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #96fff8;
-  box-shadow: 0 0 10px #96fff8;
-}
 
 /* 新しいギャラリースタイル */
 .gallery {
@@ -683,16 +574,20 @@ table.size2 th {
 }
 
 @media (max-width: 767px) {
+  .timeline {
+    padding-left: 10px; /* スマホ版では全体の左パディングを少し小さく */
+  }
+  
   .timeline > li {
-    padding-left: 30px; /* スマホ版でも丸点が見えるよう十分なスペースを確保 */
+    padding-left: 35px; /* スマホ版でも丸点が見えるよう十分なスペースを確保 */
   }
   
   .timeline > li:before {
-    left: 4px; /* スマホ版では線をさらに右へ */
+    left: 9px; /* スマホ版では線の位置を微調整 */
   }
   
   .timeline > li:after {
-    left: 0px; /* スマホ版では丸点をさらに右へ移動して確実に表示 */
+    left: 5px; /* スマホ版では丸点の位置を微調整 */
     width: 8px;
     height: 8px;
   }
@@ -715,8 +610,9 @@ table.size2 th {
   .timeline-content h3 {
     font-size: 1.2em;
   }
-
 }
+
+
 @media only screen and (max-width: 480px) {
   .project-title {
     font-size: 22px;
@@ -727,16 +623,20 @@ table.size2 th {
       0 0 15px #ff00ff;
   }
 
+  .timeline {
+    padding-left: 5px; /* 特に小さな画面では全体のパディングをさらに減らす */
+  }
+  
   .timeline > li {
-    padding-left: 25px; /* さらに小さい画面でも適切なスペースを確保 */
+    padding-left: 30px; /* パディングを調整 */
   }
   
   .timeline > li:before {
-    left: 3px; /* 線の位置を微調整 */
+    left: 8px; /* 線の位置を微調整 */
   }
   
   .timeline > li:after {
-    left: -1px; /* 丸点の位置を微調整 */
+    left: 4px; /* 丸点の位置を微調整 */
     width: 7px;
     height: 7px;
   }
