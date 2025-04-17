@@ -319,18 +319,60 @@ footer {
   }
 }
 
+/* タイムラインのベーススタイル修正 */
 .timeline {
   list-style: none;
   padding: 0;
   margin: 50px auto;
   max-width: 800px;
   font-size: 18px;
+  text-align: left;
 }
 
 .timeline > li {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 30px; /* デフォルトの左パディング */
 }
 
+/* タイムラインの線と丸の修正 */
+.timeline > li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  height: calc(100% + 40px);
+  width: 2px;
+  background: rgba(150, 255, 248, 0.4);
+}
+
+.timeline > li:last-child:before {
+  height: 30px;
+}
+
+.timeline > li:after {
+  content: '';
+  position: absolute;
+  left: -4px; /* 丸点の位置を左に調整 */
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #96fff8;
+  box-shadow: 0 0 10px #96fff8;
+}
+
+/* タイムラインコンテンツの幅修正 */
+.timeline-content {
+  background-color: rgba(72, 72, 72, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #96fff8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: calc(100% - 30px); /* パディングを考慮した幅に修正 */
+  box-sizing: border-box; /* ボックスサイズの計算方法を修正 */
+}
 /* for Desktop */
 @media (min-width: 640px) {
   .timeline > li {
@@ -642,11 +684,33 @@ table.size2 th {
 
 @media (max-width: 767px) {
   .timeline > li {
-    padding-left: 25px;
+    padding-left: 25px; /* スマホ版では左パディングを少し小さく */
   }
   
   .timeline-content {
-    width: 100%;
+    width: 100%; /* スマホ版では幅を100%に */
+    margin-left: 0; /* 左マージンを消す */
+    padding: 15px; /* パディングを少し小さく */
+  }
+  
+  /* 丸点が見えるように左位置を調整 */
+  .timeline > li:after {
+    left: -5px; /* さらに左に移動して確実に表示されるように */
+    width: 8px; /* サイズを少し小さく */
+    height: 8px;
+  }
+  
+  /* テキストサイズの調整 */
+  .timeline {
+    font-size: 16px; /* フォントサイズを少し小さく */
+  }
+  
+  .timeline-date {
+    font-size: 1.1em; /* 日付のサイズも調整 */
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.2em; /* 見出しのサイズ調整 */
   }
 }
 @media only screen and (max-width: 480px) {
@@ -657,5 +721,20 @@ table.size2 th {
       0 0 3px #fff,
       0 0 8px #ff00ff,
       0 0 15px #ff00ff;
+  }
+
+  .timeline > li {
+    padding-left: 20px; /* より小さい画面ではさらにパディングを小さく */
+  }
+  
+  .timeline-content {
+    padding: 12px; /* パディングをさらに小さく */
+  }
+  
+  /* 丸点の位置をさらに調整 */
+  .timeline > li:after {
+    left: -4px;
+    width: 7px;
+    height: 7px;
   }
 }
