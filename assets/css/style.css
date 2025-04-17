@@ -203,6 +203,13 @@ main {
   transform: translateY(-2px);
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
+.kadai a {
+  color: inherit;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  text-shadow: inherit;
+}
 
 .Skill {
   text-align: left;
