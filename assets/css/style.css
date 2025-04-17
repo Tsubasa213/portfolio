@@ -319,7 +319,7 @@ footer {
   }
 }
 
-/* タイムラインのベーススタイル修正 */
+/* タイムラインのベーススタイル */
 .timeline {
   list-style: none;
   padding: 0;
@@ -332,14 +332,14 @@ footer {
 .timeline > li {
   margin-bottom: 40px;
   position: relative;
-  padding-left: 30px; /* デフォルトの左パディング */
+  padding-left: 35px; /* 左パディングを少し増やして丸点のスペースを確保 */
 }
 
-/* タイムラインの線と丸の修正 */
+/* タイムラインの線と丸の修正 - 中央寄りに調整 */
 .timeline > li:before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 5px; /* 線の位置を右に移動（中央寄りに） */
   top: 8px;
   height: calc(100% + 40px);
   width: 2px;
@@ -353,7 +353,7 @@ footer {
 .timeline > li:after {
   content: '';
   position: absolute;
-  left: -4px; /* 丸点の位置を左に調整 */
+  left: 1px; /* 丸点の位置を右に移動（見切れないように） */
   top: 8px;
   width: 10px;
   height: 10px;
@@ -370,8 +370,8 @@ footer {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border-left: 4px solid #96fff8;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: calc(100% - 30px); /* パディングを考慮した幅に修正 */
-  box-sizing: border-box; /* ボックスサイズの計算方法を修正 */
+  width: calc(100% - 35px); /* パディング増加に合わせて調整 */
+  box-sizing: border-box;
 }
 /* for Desktop */
 @media (min-width: 640px) {
@@ -684,34 +684,38 @@ table.size2 th {
 
 @media (max-width: 767px) {
   .timeline > li {
-    padding-left: 25px; /* スマホ版では左パディングを少し小さく */
+    padding-left: 30px; /* スマホ版でも丸点が見えるよう十分なスペースを確保 */
+  }
+  
+  .timeline > li:before {
+    left: 4px; /* スマホ版では線をさらに右へ */
+  }
+  
+  .timeline > li:after {
+    left: 0px; /* スマホ版では丸点をさらに右へ移動して確実に表示 */
+    width: 8px;
+    height: 8px;
   }
   
   .timeline-content {
-    width: 100%; /* スマホ版では幅を100%に */
-    margin-left: 0; /* 左マージンを消す */
-    padding: 15px; /* パディングを少し小さく */
-  }
-  
-  /* 丸点が見えるように左位置を調整 */
-  .timeline > li:after {
-    left: -5px; /* さらに左に移動して確実に表示されるように */
-    width: 8px; /* サイズを少し小さく */
-    height: 8px;
+    width: 100%;
+    margin-left: 0;
+    padding: 15px;
   }
   
   /* テキストサイズの調整 */
   .timeline {
-    font-size: 16px; /* フォントサイズを少し小さく */
+    font-size: 16px;
   }
   
   .timeline-date {
-    font-size: 1.1em; /* 日付のサイズも調整 */
+    font-size: 1.1em;
   }
   
   .timeline-content h3 {
-    font-size: 1.2em; /* 見出しのサイズ調整 */
+    font-size: 1.2em;
   }
+
 }
 @media only screen and (max-width: 480px) {
   .project-title {
@@ -724,17 +728,20 @@ table.size2 th {
   }
 
   .timeline > li {
-    padding-left: 20px; /* より小さい画面ではさらにパディングを小さく */
+    padding-left: 25px; /* さらに小さい画面でも適切なスペースを確保 */
+  }
+  
+  .timeline > li:before {
+    left: 3px; /* 線の位置を微調整 */
+  }
+  
+  .timeline > li:after {
+    left: -1px; /* 丸点の位置を微調整 */
+    width: 7px;
+    height: 7px;
   }
   
   .timeline-content {
-    padding: 12px; /* パディングをさらに小さく */
-  }
-  
-  /* 丸点の位置をさらに調整 */
-  .timeline > li:after {
-    left: -4px;
-    width: 7px;
-    height: 7px;
+    padding: 12px;
   }
 }
