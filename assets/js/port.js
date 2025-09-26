@@ -125,7 +125,8 @@ function setupGalleryAnimations() {
       item.addEventListener('click', function() {
         const imgSrc = this.querySelector('img').src;
         const altText = this.querySelector('img').alt;
-        openModal(imgSrc, altText, this.dataset.index);
+        const gallery = this.closest('.gallery'); // 親のギャラリーを取得
+        openModal(imgSrc, altText, this.dataset.index, gallery);
       });
     });
   }
@@ -265,7 +266,7 @@ function createModalElement() {
 }
 
 // モーダルを開く関数
-function openModal(imgSrc, altText, currentIndex) {
+function openModal(imgSrc, altText, currentIndex, gallery) {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
   const caption = document.getElementById('modalCaption');
@@ -273,6 +274,12 @@ function openModal(imgSrc, altText, currentIndex) {
   if (modal && modalImg) {
     modalImg.src = imgSrc;
     modalImg.dataset.index = currentIndex;
+    modalImg.dataset.gallery = gallery ? 'set' : 'none'; // ギャラリーセットを記録
+    
+    // 現在のギャラリーを記録
+    if (gallery) {
+      window.currentGallery = gallery;
+    }
     
     if (caption && altText) {
       caption.textContent = altText;
@@ -289,6 +296,9 @@ function closeModal() {
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = 'auto'; // スクロール復活
+    
+    // 現在のギャラリー情報をクリア
+    window.currentGallery = null;
   }
 }
 
@@ -299,21 +309,38 @@ function navigateModal(direction) {
   if (!modalImg) return;
   
   const currentIndex = parseInt(modalImg.dataset.index);
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const totalItems = galleryItems.length;
   
-  if (totalItems === 0) return;
-  
-  let newIndex;
-  if (direction === 'next') {
-    newIndex = (currentIndex + 1) % totalItems;
+  // 現在のギャラリーセット内の項目のみを取得
+  let galleryItems;
+  if (window.currentGallery) {
+    galleryItems = window.currentGallery.querySelectorAll('.gallery-item');
   } else {
-    newIndex = (currentIndex - 1 + totalItems) % totalItems;
+    // フォールバック: 全ての項目
+    galleryItems = document.querySelectorAll('.gallery-item');
   }
   
-  const newItem = galleryItems[newIndex];
+  const totalItems = galleryItems.length;
+  if (totalItems === 0) return;
+  
+  // 現在のアイテムのインデックスをギャラリー内で見つける
+  let currentGalleryIndex = 0;
+  galleryItems.forEach((item, index) => {
+    if (parseInt(item.dataset.index) === currentIndex) {
+      currentGalleryIndex = index;
+    }
+  });
+  
+  let newGalleryIndex;
+  if (direction === 'next') {
+    newGalleryIndex = (currentGalleryIndex + 1) % totalItems;
+  } else {
+    newGalleryIndex = (currentGalleryIndex - 1 + totalItems) % totalItems;
+  }
+  
+  const newItem = galleryItems[newGalleryIndex];
   const newImgSrc = newItem.querySelector('img').src;
   const newAltText = newItem.querySelector('img').alt;
+  const newIndex = newItem.dataset.index;
   
   modalImg.src = newImgSrc;
   modalImg.dataset.index = newIndex;
