@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // 現在のURLに基づいてナビゲーションリンクのハイライト処理
   highlightCurrentNavLink();
+
+  // ページ共通のフェードアニメーション設定
+  setupPageRevealAnimations(reducedMotion);
   
   // ハンバーガーメニューの設定
   setupHamburgerMenu();
@@ -15,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setupGalleryAnimations();
   
   // プロジェクト要素のアニメーション設定
-  setupProjectAnimations();
+  setupProjectAnimations(reducedMotion);
   
   // モーダル要素の設定
   setupModalElement();
@@ -23,17 +28,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 現在のURLに基づいてナビゲーションリンクをハイライトする関数
 function highlightCurrentNavLink() {
-  const currentLocation = window.location.pathname;
+  const currentLocation = normalizePath(window.location.pathname);
   const navLinks = document.querySelectorAll('.main-nav a');
   
   navLinks.forEach(link => {
-    const linkPath = new URL(link.href).pathname;
-    // パスの一部が一致するか確認（サブフォルダも含む）
-    if (currentLocation.includes(linkPath) && linkPath !== '/index.html') {
+    const linkPath = normalizePath(new URL(link.href).pathname);
+
+    if (currentLocation === linkPath) {
       link.classList.add('active');
-    } else if (currentLocation === '/' && linkPath === '/index.html') {
+      return;
+    }
+
+    // ルートアクセス時のホームリンク対応
+    if (
+      (currentLocation === '/' || currentLocation === '/portfolio/' || currentLocation === '/portfolio/index.html') &&
+      (linkPath === '/index.html' || linkPath === '/portfolio/index.html')
+    ) {
       link.classList.add('active');
     }
+  });
+}
+
+function normalizePath(path) {
+  const normalized = path.endsWith('/') ? path + 'index.html' : path;
+  return normalized.replace(/\/+/g, '/');
+}
+
+function setupPageRevealAnimations(reducedMotion) {
+  if (reducedMotion) return;
+
+  const revealTargets = document.querySelectorAll('.project, .timeline > li, .About tr, .Skill tr, .hero .icon, .hero .intro, .hero .intro-text');
+  if (revealTargets.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const delay = Number(entry.target.dataset.revealDelay || 0);
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, delay);
+
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.16 }
+  );
+
+  revealTargets.forEach((target, index) => {
+    target.style.opacity = '0';
+    target.style.transform = 'translateY(18px)';
+    target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    target.dataset.revealDelay = (index % 6) * 70;
+    observer.observe(target);
   });
 }
 
@@ -133,7 +182,9 @@ function setupGalleryAnimations() {
 }
 
 // プロジェクト要素のアニメーション設定
-function setupProjectAnimations() {
+function setupProjectAnimations(reducedMotion) {
+  if (reducedMotion) return;
+
   const projects = document.querySelectorAll('.project');
   
   if (projects.length > 0) {
