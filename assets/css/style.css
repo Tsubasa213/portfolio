@@ -194,7 +194,11 @@ header {
 
 .icon {
   width: min(320px, 70vw);
+  aspect-ratio: 1 / 1;
   height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
   border-radius: 50%;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-level-2);
