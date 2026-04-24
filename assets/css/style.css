@@ -10,7 +10,8 @@
   --color-text-primary: #ffffff;
   --color-text-secondary: #a0a0a0;
   --color-text-disabled: #4d4d4d;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(168, 221, 242, 0.3);
+  --color-border-strong: rgba(168, 221, 242, 0.55);
   --color-bg: #0b0f10;
   --color-surface: #191c1e;
 
@@ -235,7 +236,7 @@ header {
 .Skill tr {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-level-1);
 }
@@ -295,7 +296,7 @@ header {
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border-strong);
   box-shadow: var(--shadow-level-1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -321,8 +322,8 @@ header {
   text-align: left;
   color: var(--color-text-secondary);
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-primary);
+  border: 1.5px solid var(--color-border-strong);
+  border-left: 4px solid var(--color-primary);
   border-radius: var(--radius-md);
 }
 
@@ -334,7 +335,7 @@ table.size2 {
 table.size2 th,
 table.size2 td {
   padding: 0.7rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-strong);
 }
 
 table.size2 th {
@@ -363,7 +364,7 @@ table.size2 th {
   top: 0.52rem;
   width: 2px;
   height: calc(100% + 1.35rem);
-  background: rgba(135, 206, 235, 0.35);
+  background: rgba(135, 206, 235, 0.55);
 }
 
 .timeline > li::after {
@@ -392,7 +393,7 @@ table.size2 th {
 .timeline-content {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-level-1);
   padding: 1rem 1.2rem;
