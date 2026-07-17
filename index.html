@@ -1,62 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsubasa's Portfolio</title>
-    <base href="/portfolio/">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Vibur:400' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="つばさの制作物・スキル・経歴を紹介するポートフォリオサイトです。">
+  <title>Tsubasa's Portfolio | Neon Night Bar</title>
+  <base href="/portfolio/">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- ヘッダーとナビゲーション -->
-    <header>
-        <h1 class="site-title">
-            <a href="index.html">Tsubasa's Portfolio</a>
-        </h1>
-                  <nav class="main-nav">
-            <ul class="nav-menu">
-                <li><a href="about/index.html">About</a></li>
-                <li><a href="career/index.html">Career</a></li>
-                <li><a href="skills/index.html">Skills</a></li>
-                <li><a href="projects/index.html">Projects</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+  <header>
+    <h1 class="site-title"><a href="index.html">Tsubasa's Portfolio</a></h1>
+    <nav class="main-nav" aria-label="メインナビゲーション">
+      <ul class="nav-menu">
+        <li><a href="about/index.html">About</a></li>
+        <li><a href="career/index.html">Career</a></li>
+        <li><a href="skills/index.html">Skills</a></li>
+        <li><a href="projects/index.html">Projects</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <h1 class="heading">Portfolio</h1>
-            <img class="icon" src="assets/images/icon.png" alt="icon">
-            <p class="intro">つばさのポートフォリオサイトへようこそ！</p>
-            <p class="intro-text">
-                ラーメンとゲームが好きな人
-                <br>このサイトでは、私のスキルやプロジェクト、経歴などを紹介しています。
-            </p>
-        </section>
-    </main>
+  <main>
+    <section class="hero" aria-labelledby="welcome-heading">
+      <h2 class="heading" id="welcome-heading">Portfolio</h2>
+      <img class="icon" src="assets/images/icon.png" alt="つばさのプロフィール画像">
+      <p class="intro">つばさのポートフォリオサイトへようこそ！</p>
+      <p class="intro-text">ラーメンとゲームが好きな人。<br>スキル、制作物、これまでの歩みを、夜の一杯のようにゆっくりご覧ください。</p>
+    </section>
+  </main>
 
-    <footer>
-        <p>E-mail // rg22152t@st.omu.ac.jp</p>
-        <p class="footer-social">
-            <a class="github-link" href="https://github.com/Tsubasa213" target="_blank" rel="noopener noreferrer" aria-label="GitHubプロフィールを開く">
-                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.55 7.55 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                </svg>
-                <span>GitHub</span>
-            </a>
-        </p>
-        <p>© copyright 2026 Tsubasa213/つばさ all right resolved.</p>
-    </footer>
+  <footer>
+    <p>E-mail // rg22152t@st.omu.ac.jp</p>
+    <p class="footer-social"><a class="github-link" href="https://github.com/Tsubasa213" target="_blank" rel="noopener noreferrer" aria-label="GitHubプロフィールを新しいタブで開く"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.55 7.55 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></svg><span>GitHub</span></a></p>
+    <p>© 2026 Tsubasa213 / つばさ. All rights reserved.</p>
+  </footer>
+  <script src="assets/js/port.js" defer></script>
 </body>
-<script src="assets/js/port.js" defer></script>
 </html>

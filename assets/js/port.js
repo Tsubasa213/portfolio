@@ -96,6 +96,7 @@ function setupHamburgerMenu() {
       e.preventDefault();
       navMenu.classList.toggle('active');
       hamburgerBtn.classList.toggle('active');
+      hamburgerBtn.setAttribute('aria-expanded', String(navMenu.classList.contains('active')));
     });
     
     const menuItems = document.querySelectorAll('.nav-menu a');
@@ -103,6 +104,7 @@ function setupHamburgerMenu() {
       item.addEventListener('click', function() {
         navMenu.classList.remove('active');
         hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
       });
     });
     
@@ -110,6 +112,7 @@ function setupHamburgerMenu() {
       if (window.innerWidth > 768) {
         navMenu.classList.remove('active');
         hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
       }
     });
   }
