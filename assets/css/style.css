@@ -112,6 +112,22 @@ main { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; padding: clamp(2.3
 .hero .intro { margin: 0; color: #fff8cf; font-size: clamp(1.05rem, 2vw, 1.3rem); font-weight: 700; line-height: 1.55; }
 .hero .intro-text { margin: .45rem 0 0; color: var(--muted); font-size: .9rem; }
 
+.portfolio-index { margin-top: clamp(3.5rem, 10vw, 7rem); padding-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--line); }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.section-heading p { margin: 0 0 .32rem; color: var(--pink-light); font-family: 'DM Mono', monospace; font-size: .62rem; letter-spacing: .18em; }
+.section-heading h2 { max-width: 700px; margin: 0; color: var(--paper); font-family: 'Playfair Display', 'Noto Sans JP', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; line-height: 1; letter-spacing: -.045em; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.portfolio-card { position: relative; min-height: 260px; padding: 1.25rem; display: flex; flex-direction: column; color: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(14, 9, 13, .58); text-decoration: none; transition: background .22s ease, transform .22s ease, box-shadow .22s ease; }
+.portfolio-card::after { content: ''; position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: var(--pink); box-shadow: 0 0 13px var(--pink); transform: scaleX(0); transform-origin: left; transition: transform .24s ease; }
+.portfolio-card:hover, .portfolio-card:focus-visible { z-index: 1; outline: none; background: rgba(43, 19, 36, .9); box-shadow: inset 0 0 0 1px rgba(255,149,206,.5), 0 0 26px rgba(255,60,166,.12); transform: translateY(-4px); }
+.portfolio-card:hover::after, .portfolio-card:focus-visible::after { transform: scaleX(1); }
+.portfolio-card--featured { grid-column: span 2; background: linear-gradient(135deg, rgba(66, 18, 49, .75), rgba(16, 10, 18, .78)); }
+.card-number { color: var(--dim); font-family: 'DM Mono', monospace; font-size: .66rem; letter-spacing: .1em; }
+.card-label { margin-top: auto; color: var(--cyan); font-family: 'DM Mono', monospace; font-size: .59rem; letter-spacing: .14em; }
+.portfolio-card strong { margin-top: .24rem; color: var(--paper); font-family: 'Playfair Display', 'Noto Sans JP', serif; font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 600; line-height: 1.1; }
+.card-action { margin-top: 1.25rem; color: var(--muted); font-size: .78rem; }
+.card-action b { color: var(--pink-light); font-size: 1.1rem; font-weight: 400; }
+
 .about-section, .career-section, .skills-section, .projects-section { max-width: 960px; margin: 0 auto; }
 .heading { margin: 0 0 2.4rem; position: relative; color: var(--paper); font-family: 'Playfair Display', 'Noto Sans JP', serif; font-size: clamp(3rem, 7vw, 5.4rem); font-weight: 600; letter-spacing: -.05em; line-height: 1; text-align: center; text-shadow: 0 0 16px rgba(255, 60, 166, .26); }
 .heading::after { content: ''; display: block; width: min(180px, 38vw); height: 1px; margin: 1rem auto 0; background: linear-gradient(90deg, transparent, var(--pink), var(--cyan), transparent); box-shadow: 0 0 8px var(--pink); }
@@ -179,6 +195,10 @@ footer p { margin: .25rem 0; }
   .portrait-frame { grid-column: 1; grid-row: 2; width: min(220px, 63vw); }
   .sign-panel { grid-column: 1; grid-row: 3; min-height: 294px; }
   .hero-copy { grid-column: 1; grid-row: 4; text-align: left; }
+  .portfolio-index { margin-top: 4rem; }
+  .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-card { min-height: 220px; }
+  .portfolio-card--featured { grid-column: span 2; }
   .About th, .About td, .Skill th, .Skill td { padding: .9rem .75rem; }
   .About th { width: 34%; }
   .Skill th { width: 88px; }
@@ -191,6 +211,10 @@ footer p { margin: .25rem 0; }
   .site-title { font-size: 1.05rem; }
   .site-title a::before { display: none; }
   .heading { font-size: 3.1rem; }
+  .section-heading { display: block; }
+  .section-heading h2 { margin-top: .5rem; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-card, .portfolio-card--featured { grid-column: auto; min-height: 188px; }
   .About, .Skill { font-size: .88rem; }
   .About th, .About td, .Skill th, .Skill td { padding: .7rem .55rem; }
   .gallery { grid-template-columns: 1fr; }
